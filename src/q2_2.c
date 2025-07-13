@@ -1,4 +1,4 @@
-// q3_2.c - 
+// q2_2.c - 
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>

@@ -1,4 +1,4 @@
-// q3_1.c - implementar a série sequencialmente.
+// q2_1.c - implementar a série sequencialmente.
 #include <stdio.h>
 #include <time.h>
 
