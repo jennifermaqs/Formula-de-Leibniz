@@ -1,8 +1,10 @@
-// q2_2.c - Jennifer Marques de Brito
+// q2_2.c (paralelo) - Jennifer Marques de Brito
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
 
+// LL para garantir que o número seja tratado como um long long literal,
+// prevenindo possíveis problemas de overflow 
 #define NUM_TERMS 2000000000LL
 #define NUM_THREADS 16
 #define PARTIAL_NUM_TERMS ((NUM_TERMS) / (NUM_THREADS))

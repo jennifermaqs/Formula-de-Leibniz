@@ -1,4 +1,4 @@
-// q2_1.c - Jennifer Marques de Brito
+// q2_1.c (sequencial) - Jennifer Marques de Brito
 #include <stdio.h>
 #include <time.h>
 
