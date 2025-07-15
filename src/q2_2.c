@@ -48,12 +48,12 @@ DWORD WINAPI partialProcessing(LPVOID param) {
     // calcula a soma parcial designada para esta thread
     double parcial = partialFormula(args->start_index);
 
-    // INÍCIO DA SEÇÃO CRÍTICA:
+    // INÍCIO DA SEÇÃO CRÍTICA
     // Protegendo a soma global
     EnterCriticalSection(&cs);
     soma_global += parcial;  // adiciona a soma parcial desta thread a soma global
     LeaveCriticalSection(&cs);
-    // FIM DA SEÇÃO CRÍTICA:
+    // FIM DA SEÇÃO CRÍTICA
 
 
     // registra o tempo de término da execução 
@@ -80,7 +80,7 @@ int main() {
         args[i].start_index = i * PARTIAL_NUM_TERMS; //calcula o indice de inicio 
         args[i].tempo_gasto = 0.0; // tempo gasto inicializa como zero
 
-    // cria a thread.
+    // cria a thread
         threads[i] = CreateThread(
             NULL, 0,
             partialProcessing,
@@ -89,10 +89,10 @@ int main() {
         );
     }
 
-    // Espera que todas as threads terminem sua execução.
+    //espera que todas as threads terminem sua execução
     WaitForMultipleObjects(NUM_THREADS, threads, TRUE, INFINITE);
 
-    // calcula o tempo total de processamento paralelo (desde o início até todas terminarem)
+    // calcula o tempo total de processamento paralelo (desde o início até terminarem)
     double tempo_total = (GetTickCount() - inicio_total) / 1000.0;
     double soma_tempos = 0.0; // variável para somar os tempos individuais de cada thread
 
@@ -101,7 +101,7 @@ int main() {
         CloseHandle(threads[i]);
         soma_tempos += args[i].tempo_gasto;
     }
-    // soma ainda está em pi/4, então multiplica por 4 para obter pi
+    //soma ainda está em pi/4, então multiplica por 4 para obter pi
     double pi = soma_global * 4.0;
 
     // valor aproximado de Pi obtido paralelamente
